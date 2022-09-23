@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface CandidateRepository extends JpaRepository<Candidate, Long> {
-    @Query("select c from Candidate c where c.name=:name")
-    List<Candidate> getCoursesByCourseName(String name);
+//    @Query("select c from Candidate c where c.name=:name")
+//    List<Candidate> getCandidatesBycandidateName(String name);
 }

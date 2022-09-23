@@ -12,10 +12,9 @@ public interface CandidateServiceInterface {
 
     CandidateDto createCandidate(CandidateDto candidateDto);
 
-    CandidateDto updateCandidate(CandidateDto candidateDto);
+    CandidateDto updateCandidate(CandidateDto candidateDto, long id);
 
     CandidateDto deleteCandidate(long id);
 
-    List<CandidateDto> getCoursesByCourseName(String name);
 
 }

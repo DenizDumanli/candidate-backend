@@ -30,15 +30,16 @@ public class CandidateService implements CandidateServiceInterface {
     }
 
     @Override
-    public CandidateDto createCandidate(CandidateDto course) {
+    public CandidateDto createCandidate(CandidateDto candidate) {
 
-        Candidate createdCandidate = candidateRepository.save(course.toCandidate());
+        Candidate createdCandidate = candidateRepository.save(candidate.toCandidate());
         return createdCandidate.toCandidateDto();
     }
 
     @Override
-    public CandidateDto updateCandidate(CandidateDto candidateDto) {
-        Optional<Candidate> candidate = candidateRepository.findById(candidateDto.getId());
+    public CandidateDto updateCandidate(CandidateDto candidateDto, long id) {
+        Optional<Candidate> candidate = candidateRepository.findById(id);
+        candidateDto.setId(id);
         if (candidate.isPresent()) {
             Candidate updatedCandidate = candidateRepository.save(candidateDto.toCandidate());
             return updatedCandidate.toCandidateDto();
@@ -58,8 +59,4 @@ public class CandidateService implements CandidateServiceInterface {
             return null;
     }
 
-    @Override
-    public List<CandidateDto> getCoursesByCourseName(String name) {
-        return candidateRepository.getCoursesByCourseName(name).stream().map(Candidate::toCandidateDto).collect(Collectors.toList());
-    }
 }
