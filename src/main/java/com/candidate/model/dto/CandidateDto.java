@@ -16,7 +16,7 @@ public class CandidateDto {
     public Candidate toCandidate(){
         Candidate candidate = new Candidate();
         candidate.setId(this.getId());
-        candidate.setName(this.getSurname());
+        candidate.setName(this.getName());
         candidate.setSurname(this.getSurname());
         candidate.setEmail(this.getEmail());
         candidate.setNotes(this.getNotes());
